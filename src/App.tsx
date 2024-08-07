@@ -19,7 +19,6 @@ import {
   SiStorybook,
   SiStyledcomponents,
   SiTailwindcss,
-  SiTypescript,
   SiVite,
 } from "react-icons/si";
 
@@ -39,32 +38,35 @@ const App = () => {
   );
 };
 
-const Navbar = () => (
+const Navbar: React.FC = () => (
   <nav className="bg-gray-800 text-white p-4">
     <div className="container mx-auto flex justify-between items-center">
       <span></span>
-      <div>
-        <a href="#about" className="mx-2">
-          Sobre mim
-        </a>
-        <a href="#skills" className="mx-2">
-          Skills
-        </a>
-        <a href="#projects" className="mx-2">
-          Projetos
-        </a>
-        <a href="#experience" className="mx-2">
-          Experiência
-        </a>
-        <a href="#contact" className="mx-2">
-          Contato
-        </a>
+      <div className="flex items-center space-x-4">
+        <NavItem href="#about">About</NavItem>
+        <NavItem href="#skills">Skills</NavItem>
+        <NavItem href="#projects">Projects</NavItem>
+        <NavItem href="#experience">Experience</NavItem>
+        <NavItem href="#useful-links">Useful Links</NavItem>
+        <NavItem href="#contact">Contact</NavItem>
       </div>
     </div>
   </nav>
 );
 
-const Header = () => (
+interface NavItemProps {
+  href: string;
+  children: React.ReactNode;
+}
+
+const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
+  <a href={href} className="relative group">
+    {children}
+    <span className="absolute left-0 right-0 bottom-0 block h-0.5 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+  </a>
+);
+
+const Header: React.FC = () => (
   <header className="hero py-20 bg-gray-100 text-center">
     <h1 className="text-4xl font-bold">Olá, me chamo Emiliano</h1>
     <p className="mt-4 text-lg">Front-End Developer</p>
@@ -77,7 +79,7 @@ const Header = () => (
   </header>
 );
 
-const About = () => (
+const About: React.FC = () => (
   <section id="about" className="about py-20 parallax text-white text-center">
     <div className="parallax-content container mx-auto mt-10">
       <h2 className="text-3xl font-bold">Sobre mim</h2>
@@ -96,7 +98,7 @@ const About = () => (
   </section>
 );
 
-const Skills = () => {
+const Skills: React.FC = () => {
   const [visibleSkills, setVisibleSkills] = useState(3);
   const [expanded, setExpanded] = useState(false);
 
@@ -186,7 +188,12 @@ const Skills = () => {
   );
 };
 
-const SkillCard = ({ skill, Icon }) => (
+interface SkillCardProps {
+  skill: string;
+  Icon: React.ComponentType;
+}
+
+const SkillCard: React.FC<SkillCardProps> = ({ skill, Icon }) => (
   <div className="m-4 p-6 w-60 h-40 bg-white shadow-lg rounded-lg border-t-4 border-blue-500 flex flex-col items-center justify-center">
     <div className="text-4xl text-blue-500 mb-2">
       <Icon />
@@ -195,7 +202,7 @@ const SkillCard = ({ skill, Icon }) => (
   </div>
 );
 
-const Projects = () => (
+const Projects: React.FC = () => (
   <section id="projects" className="projects py-20">
     <div className="container mx-auto text-center">
       <h2 className="text-3xl font-bold">Projeto</h2>
@@ -208,14 +215,19 @@ const Projects = () => (
   </section>
 );
 
-const ProjectCard = ({ title, description }) => (
+interface ProjectCardProps {
+  title: string;
+  description: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description }) => (
   <div className="m-4 p-6 max-w-xs bg-white shadow-md rounded">
     <h3 className="text-xl font-bold">{title}</h3>
     <p className="mt-4">{description}</p>
   </div>
 );
 
-const Experience = () => (
+const Experience: React.FC = () => (
   <section id="experience" className="experience py-20 bg-gray-100">
     <div className="container mx-auto text-center">
       <h2 className="text-3xl font-bold">Experiência</h2>
@@ -240,7 +252,17 @@ const Experience = () => (
   </section>
 );
 
-const ExperienceCard = ({ position, company, duration }) => (
+interface ExperienceCardProps {
+  position: string;
+  company: string;
+  duration: string;
+}
+
+const ExperienceCard = ({
+  position,
+  company,
+  duration,
+}: ExperienceCardProps) => (
   <div className="m-4 p-6 max-w-xs bg-white shadow-md rounded">
     <h3 className="text-xl font-bold">{position}</h3>
     <p className="mt-2">{company}</p>
