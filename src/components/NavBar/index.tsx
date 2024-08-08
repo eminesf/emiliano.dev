@@ -29,7 +29,6 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:flex space-x-4">
           <NavItem href="#about">Sobre</NavItem>
           <NavItem href="#skills">Skills</NavItem>
-          <NavItem href="#projects">Projetos</NavItem>
           <NavItem href="#experience">Experiências</NavItem>
           <NavItem href="#useful-links">Links Úteis</NavItem>
           <NavItem href="#contact">Contatos</NavItem>
@@ -60,10 +59,6 @@ export const Navbar: React.FC = () => {
               <Separator />
               <NavItem href="#skills" onClick={closeModal}>
                 Skills
-              </NavItem>
-              <Separator />
-              <NavItem href="#projects" onClick={closeModal}>
-                Projetos
               </NavItem>
               <Separator />
               <NavItem href="#experience" onClick={closeModal}>
