@@ -11,7 +11,8 @@ export const Experience: React.FC = () => (
           duration="Dezembro 2024 - Atual"
         />
       </div>
-      <h2 className="text-3xl font-bold text-white">Experiência</h2>
+      
+      <h2 className="text-3xl font-bold text-white mt-10">Experiência</h2>
       <div className="flex flex-wrap justify-center mt-10">
         <ExperienceCard
           position="Front-End Software Engineer II"
