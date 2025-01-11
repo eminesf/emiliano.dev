@@ -7,7 +7,7 @@ export const Experience: React.FC = () => (
       <div className="flex flex-wrap justify-center mt-10">
       <ExperienceCard
           position="Desenvolvedor Front-End Pleno"
-          company="Sicredi"
+          company="Creare Sistemas"
           duration="Dezembro 2024 - Atual"
         />
         <ExperienceCard
