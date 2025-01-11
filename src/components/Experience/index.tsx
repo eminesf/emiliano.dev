@@ -5,13 +5,18 @@ export const Experience: React.FC = () => (
     <div className="container mx-auto text-center parallax-content">
       <h2 className="text-3xl font-bold text-white">Experiência</h2>
       <div className="flex flex-wrap justify-center mt-10">
+      <ExperienceCard
+          position="Desenvolvedor Front-End Pleno"
+          company="Sicredi"
+          duration="Dezembro 2024 - Atual"
+        />
         <ExperienceCard
-          position="Front-End Software Engineer"
+          position="Front-End Software Engineer II"
           company="Sicredi"
           duration="Junho 2023 - Maio 2024"
         />
         <ExperienceCard
-          position="Front-End Software Engineer"
+          position="Front-End Software Engineer II"
           company="Agibank"
           duration="Maio 2021 - Abril 2023"
         />
